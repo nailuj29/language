@@ -1,0 +1,11 @@
+>= < + * 
+/ == // Comments
+123.456 * 6
+test_id
+true & false | nil
+call('string', 42)
+if while for return var fun
+'single quotes'
+"double quotes"
+(){}
+:keyword

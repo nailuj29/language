@@ -1,0 +1,184 @@
+print("----PRINT----");
+printRaw("The answer to life, the universe and everything is: ");
+print('4' + '2');
+
+print("----BOOLEANS AND NIL----");
+print(true);
+print(false);
+print(nil);
+
+print("----BLOCKS AND VARS----");
+{
+	var message = "in block";
+	print(message);
+	{
+		var message = "nested";
+		print(message);
+		{
+			message = "even more nested";
+		}
+		print(message);
+	}
+	print(message);
+}
+
+print("----IF ELSE AND MATH----");
+if 2 + 2 == 4 {
+	print("math");
+} else {
+	print("math has failed");
+}
+
+
+print("----IF SANITY CHECK----");
+if false {
+	print("false isnt true");
+} else {
+	print("ok");
+}
+
+if true {
+	print("ok");
+} else {
+	print("true isnt false");
+}
+
+
+print("----IF WITH VARIABLES----");
+var test = 4;
+if test > 2 {
+	test = 2;
+}
+print(test);
+if test > 42 {
+	test = 42;
+} else {
+	test = 4.2;
+}
+print(test);
+
+
+print("----WHILE LOOP----");
+var test = 10;
+while test > 0 {
+	print(test);
+	test = test - 1;
+}
+
+
+print("----BREAK----");
+var test = 10;
+while test > 0 {
+	if test == 4 {
+		break;
+	}
+	print(test);
+	test = test - 1;
+}
+
+
+print("----CONTINUE----");
+var test = 10;
+while test > 0 {
+	test = test - 1;
+	if test == 4 {
+		continue;
+	}
+	print(test);
+}
+
+print("----FOR----");
+for var i = 0; i < 10; i = i + 1 {
+	print(i);
+}
+
+print("----LOOP----");
+var i = 0;
+loop {
+	i = i + 1;
+	print(i);
+	if i == 100 {
+		print("Breaking");
+		break;
+	}
+}
+
+print("----FUNCTIONS----");
+fn printVal(param) {
+	print(param);
+}
+
+fn apply(function, value) {
+	return function(value);
+}
+
+fn double(num) {
+	return num * 2;
+}
+
+fn fib(n) {
+	if (n < 3) {
+		return 1;
+	} else {
+		return fib(n - 1) + fib(n - 2);
+	}
+}
+
+printVal("Hi!");
+print(double(21));
+apply(print, "The answer: " + 42);
+apply(print, apply(double, 42));
+/*
+for var i = 0; i < 25; i = i + 1 {
+	print(fib(i));
+}
+*/
+
+print("----IMPORTS----");
+import utils;
+print(utils.greet("World"));
+
+print("----STDLIB----");
+import os;
+printRaw("Your os is: ");
+print(os.name);
+
+import io;
+io.write("hello", "Hello, World!\n");
+printRaw(io.read("hello"));
+io.append("hello", "Hi again!");
+print(io.read("hello"));
+
+printRaw("What's your name: ");
+var name = input();
+print(utils.greet(name));
+
+print("----CURRYING----");
+fn add(x, y) {
+	return x + y;
+}
+
+var addOne = add(1);
+print(addOne(41));
+
+print("----LISTS----");
+var list = [1,2,3,4];
+print(list);
+print(list[2]);
+list[2] = 5;
+print(list);
+for var i = 0; i < len(list); i = i + 1 {
+	print("List indexed by " + i + " is " + list[i]);
+}
+list = list + [21];
+for var item in list {
+	print("Item * 2 is " + (item * 2));
+}
+// Are comments working?
+/* 
+Are
+Multiline
+Comments
+Working?
+*/
+/* are /* nested */ multiline comments working? */
